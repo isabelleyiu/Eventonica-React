@@ -13,6 +13,12 @@ class EventInput extends Component {
       venue_address: ''
     }
   }
+
+  componentDidUpdate (prevProps) {
+    if(prevProps.selectedEvent !== this.props.selectedEvent) {
+      this.setState({...this.props.selectedEvent})
+    } 
+  }
   // browser event as parameter
   // update this.state with form inputs
   handleChange = (e) => {
@@ -21,14 +27,19 @@ class EventInput extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // passing form inputs over to EventList to make API call
-    this.props.createEvent({...this.state});
-    this.setState ({
-      title: '',
-      start_time: '',
-      venue_name: '',
-      venue_address: ''
-    } )
+    // check if an event was passed with edit button
+    if(this.props.selectedEvent) {
+      this.props.editEvent({...this.state})
+    } else {
+      // passing form inputs over to EventList to make API call
+      this.props.createEvent({...this.state});
+    }
+      this.setState ({
+        title: '',
+        start_time: '',
+        venue_name: '',
+        venue_address: ''
+      })
   }
 
   render() {

@@ -15,7 +15,7 @@ class Event extends Component {
         <h4>Time: {this.props.start_time}</h4>
         <h4>Venue: {this.props.venue_name}</h4>
         <h4>Address: {this.props.venue_address}</h4>
-        <Button variant="outline-secondary" onClick={this.props.editEvent}>EDIT</Button>
+        <Button variant="outline-danger" onClick={this.props.selectedEvent}>EDIT</Button> 
         <Button variant="outline-danger" onClick={this.props.deleteEvent}>DELETE</Button> 
       </div>
     )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Event from './Event';
 import './EventList.css';
+import EventInput from './EventInput'
 
 class EventList extends Component {
   constructor(props) {
@@ -28,7 +29,21 @@ class EventList extends Component {
       const events = this.state.events.filter(event => event.id !== id);
       this.setState({events});
     })
+  }
 
+  createEvent = (eventInput) => {
+    fetch('/api/events', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(eventInput)
+    })
+    .then(res => res.json())
+    .then(newEvent => {
+      this.setState({events: [...this.state.events, newEvent]})
+    })
+  }
     // editEvent = (event) => {
     //   fetch(`/api/events/${event.id}`, {
     //     method: 'PUT',
@@ -43,7 +58,7 @@ class EventList extends Component {
     //     })
     //   })
     // }
-  }
+  
 
   render() {
     const events = this.state.events.map(event => (
@@ -57,6 +72,7 @@ class EventList extends Component {
     return (
       <div>
         <h1>Eventonica</h1>
+        <EventInput createEvent={this.createEvent}/>
         <p>Here are the events:</p>
         <div className="event-list">
           {events}

@@ -28,6 +28,21 @@ class EventList extends Component {
       const events = this.state.events.filter(event => event.id !== id);
       this.setState({events});
     })
+
+    // editEvent = (event) => {
+    //   fetch(`/api/events/${event.id}`, {
+    //     method: 'PUT',
+    //     header: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       title: event.title,
+    //       start_time: event.start_time,
+    //       venue_name: event.venue_name,
+    //       venue_address: event.venue_address
+    //     })
+    //   })
+    // }
   }
 
   render() {
@@ -36,6 +51,7 @@ class EventList extends Component {
         key={event.id}
         {...event}
         deleteEvent={this.deleteEvent.bind(this, event.id)}
+        // editEvent={this.editEvent.bind(this, event)}
       />
     ))
     return (

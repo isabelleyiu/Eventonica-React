@@ -19,11 +19,23 @@ class EventList extends Component {
     .then(events => this.setState({events}))
   }
 
+  deleteEvent = (id) => {
+    fetch(`/api/events/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(() => {
+      const events = this.state.events.filter(event => event.id !== id);
+      this.setState({events});
+    })
+  }
+
   render() {
     const events = this.state.events.map(event => (
       <Event 
         key={event.id}
         {...event}
+        deleteEvent={this.deleteEvent.bind(this, event.id)}
       />
     ))
     return (

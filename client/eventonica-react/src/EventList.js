@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Event from './Event';
+import './EventList.css';
 
 class EventList extends Component {
   constructor(props) {
@@ -29,9 +30,9 @@ class EventList extends Component {
       <div>
         <h1>Eventonica</h1>
         <p>Here are the events:</p>
-        <ul>
+        <div className="event-list">
           {events}
-        </ul>
+        </div>
       </div>
     )
   }

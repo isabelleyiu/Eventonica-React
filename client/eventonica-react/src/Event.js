@@ -14,7 +14,8 @@ class Event extends Component {
         <h4>Time: {this.props.start_time}</h4>
         <h4>Venue: {this.props.venue_name}</h4>
         <h4>Address: {this.props.venue_address}</h4>
-        <span onClick={this.props.deleteEvent}> X </span>
+        <button onClick={this.props.deleteEvent}> DELETE </button>
+
       </div>
     )
   }

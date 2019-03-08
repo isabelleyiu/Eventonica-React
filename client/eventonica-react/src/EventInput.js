@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
+import './EventInput.css'
 
 class EventInput extends Component {
   constructor(props) {
@@ -45,7 +43,7 @@ class EventInput extends Component {
   render() {
     const {title, start_time, venue_name, venue_address} = this.state;
     return (
-      <div>
+      <div className="event-form">
         <form>
           <h2>Create New Event</h2>
           <label>Title</label>
@@ -59,23 +57,6 @@ class EventInput extends Component {
           <button onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
-      // <Container>
-      //   <Form onSubmit={this.handleSubmit}>
-      //     <Form.Group controlId="formBasicEmail">
-      //       <Form.Label>Title</Form.Label>
-      //       <Form.Control  type="text" placeholder="Title of your event" />
-      //     </Form.Group>
-
-      //     <Form.Group controlId="formBasicPassword">
-      //       <Form.Label>Time</Form.Label>
-      //       <Form.Control type="text" placeholder="start time of your event" />
-      //     </Form.Group>
-      //     <Button variant="primary" type="submit">
-      //       Submit
-      //     </Button>
-      //   </Form>
-      // </Container>
-      
     )
   }
 }

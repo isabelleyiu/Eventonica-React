@@ -80,7 +80,7 @@ class EventList extends Component {
       <div>
         <h1>Eventonica</h1>
         <EventInput editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} />
-        <p>Here are the events:</p>
+        <h2>Here are the events:</h2>
         <div className="event-list">
           {events}
         </div>

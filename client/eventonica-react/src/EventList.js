@@ -39,19 +39,21 @@ class EventList extends Component {
   } 
 
   editEvent = (eventInput) => {
+    console.log(eventInput);
     fetch(`/api/events/${eventInput.id}`, {
       method: 'PUT',
-      header: {
+      headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(eventInput)
     })
     .then(res => res.json())
-    .then(() => {
+    .then((newEvent) => {
       const events = this.state.events.map(event => {
-        return (event.id === eventInput.id) ? eventInput : event;
+        return (event.id === newEvent.id) ? newEvent : event;
       });
-      this.setState({events});
+      this.setState({events, selectedEvent: null});
+      
     })
   }
   

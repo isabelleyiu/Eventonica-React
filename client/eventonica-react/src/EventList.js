@@ -18,6 +18,7 @@ class EventList extends Component {
     fetch('/api/events')
     .then(res => res.json())
     .then(events => this.setState({events}))
+    .catch(err => console.log(err => console.log(err.stack)))
   } 
 
   createEvent = (eventInput) => {
@@ -35,11 +36,10 @@ class EventList extends Component {
   }
 
   selectedEvent = (event) => {
-    this.setState({selectedEvent: event})
+    this.setState({selectedEvent: event});
   } 
 
   editEvent = (eventInput) => {
-    console.log(eventInput);
     fetch(`/api/events/${eventInput.id}`, {
       method: 'PUT',
       headers: {
@@ -52,7 +52,7 @@ class EventList extends Component {
       const events = this.state.events.map(event => {
         return (event.id === newEvent.id) ? newEvent : event;
       });
-      this.setState({events, selectedEvent: null});
+      this.setState({events});
       
     })
   }
@@ -76,6 +76,7 @@ class EventList extends Component {
         selectedEvent={this.selectedEvent.bind(this, event)}
       />
     ))
+    // console.log(this.state);
     return (
       <div>
         <h1>Eventonica</h1>

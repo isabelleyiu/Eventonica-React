@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Event from './Event';
+import { Container, Row, Col } from 'react-bootstrap';
 import './EventList.css';
 import EventForm from './EventForm';
 
@@ -69,23 +70,23 @@ class EventList extends Component {
   }
   render() {
     const events = this.state.events.map(event => (
-      <Event 
+      <Col sm={3} md={4}><Event 
         key={event.id}
         {...event}
         deleteEvent={this.deleteEvent.bind(this, event.id)}
         selectedEvent={this.selectedEvent.bind(this, event)}
-      />
+      /></Col>
     ))
     // console.log(this.state);
     return (
-      <div>
-        <h1>Eventonica</h1>
+      <Container>
+        <h1 style={{color: 'white'}}>Eventonica</h1>
         <EventForm editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} />
-        <h2>Here are the events:</h2>
-        <div className="event-list">
+        {/* <h2>Here are the events:</h2> */}
+        <Row className="event-list">
           {events}
-        </div>
-      </div>
+        </Row>
+      </Container>
     )
   }
 }

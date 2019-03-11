@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Event from './Event';
 import './EventList.css';
-import EventInput from './EventInput';
+import EventForm from './EventForm';
 
 class EventList extends Component {
   constructor(props) {
@@ -80,7 +80,7 @@ class EventList extends Component {
     return (
       <div>
         <h1>Eventonica</h1>
-        <EventInput editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} />
+        <EventForm editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} />
         <h2>Here are the events:</h2>
         <div className="event-list">
           {events}

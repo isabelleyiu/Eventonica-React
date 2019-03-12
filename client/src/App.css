@@ -1,6 +1,10 @@
+body {
+  background: url("https://images.unsplash.com/photo-1546449982-a01eedcc37c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1054&q=80")fixed;
+}
+
 .App {
   text-align: center;
-  background: url("https://images.unsplash.com/photo-1546449982-a01eedcc37c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1054&q=80")fixed;
+  
 }
 
 .App-logo {

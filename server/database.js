@@ -9,7 +9,7 @@ const pool = new Pool({
   // database: process.env.DB,
   // password: process.env.PASSWORD,
   // port: 5432
-  connectionString: process.env.DATABASE_URL || `postgres://${process.env.DB_USER}@localhost:5432&password=${process.env.PASSWORD}`
+  connectionString: process.env.DATABASE_URL || `postgres://${process.env.DB_USER}@localhost:5432&password=${process.env.PASSWORD}`,
   ssl: process.env.NODE_ENV === 'production'
 });
 

@@ -16,7 +16,7 @@ class EventForm extends Component {
 
   componentDidUpdate (prevProps) {
     if(prevProps.selectedEvent !== this.props.selectedEvent) {
-        const time = moment(this.props.selectedEvent.start_time);
+        const time = moment(this.props.selectedEvent.start_time).local();
         this.setState({
           id: this.props.selectedEvent.id,
           title: this.props.selectedEvent.title,

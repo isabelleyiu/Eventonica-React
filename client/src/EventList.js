@@ -70,7 +70,8 @@ class EventList extends Component {
   }
   render() {
     const events = this.state.events.map(event => (
-      <Col align="center" sm={12} md={12} lg={6} xl={4}><Event 
+      <Col align="center" sm={12} md={12} lg={6} xl={4}>
+      <Event 
         key={event.id}
         {...event}
         deleteEvent={this.deleteEvent.bind(this, event.id)}

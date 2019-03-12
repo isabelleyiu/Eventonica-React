@@ -36,7 +36,6 @@ class EventForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    //"01:00 2016-01-01"
     const eventISO8601Time = moment(`${this.state.date} ${this.state.time}` , "YYYY-MM-DD HH:mm a").format();
 
     const inputEvent = {
@@ -81,39 +80,39 @@ class EventForm extends Component {
       //     <button onClick={this.handleSubmit}>Submit</button>
       //   </Form>
       // </div>
-<Form >
-  <Form.Group>
-    <Form.Label style={{color: 'white'}}>EVENT</Form.Label>
-    <Form.Control type="text" placeholder="Learn React" name="title" value={title} onChange={this.handleChange} />
-  </Form.Group>
-  <Form.Row>
-    <Form.Group as={Col}>
-      <Form.Label style={{color: 'white'}}>DATE</Form.Label>
-      <Form.Control type="text" placeholder="YYYY-MM-DD"  name="date" value={date} onChange={this.handleChange} />
-    </Form.Group>
+      <Form >
+        <Form.Group>
+          <Form.Label style={{color: 'white'}}>EVENT</Form.Label>
+          <Form.Control type="text" placeholder="Learn React" name="title" value={title} onChange={this.handleChange} />
+        </Form.Group>
+        <Form.Row>
+          <Form.Group as={Col}>
+            <Form.Label style={{color: 'white'}}>DATE</Form.Label>
+            <Form.Control type="text" placeholder="YYYY-MM-DD"  name="date" value={date} onChange={this.handleChange} />
+          </Form.Group>
 
-    <Form.Group as={Col}>
-      <Form.Label style={{color: 'white'}}>TIME</Form.Label>
-      <Form.Control type="text" placeholder="06:30 pm" name="time" value={time} onChange={this.handleChange} />
-    </Form.Group>
-  </Form.Row>
+          <Form.Group as={Col}>
+            <Form.Label style={{color: 'white'}}>TIME</Form.Label>
+            <Form.Control type="text" placeholder="06:30 pm" name="time" value={time} onChange={this.handleChange} />
+          </Form.Group>
+        </Form.Row>
 
-  <Form.Row>
-    <Form.Group as={Col}>
-      <Form.Label style={{color: 'white'}}>VENUE</Form.Label>
-      <Form.Control placeholder="Techtonica" name="venue_name" value={venue_name} onChange={this.handleChange} />
-    </Form.Group>
+        <Form.Row>
+          <Form.Group as={Col}>
+            <Form.Label style={{color: 'white'}}>VENUE</Form.Label>
+            <Form.Control placeholder="Techtonica" name="venue_name" value={venue_name} onChange={this.handleChange} />
+          </Form.Group>
 
-    <Form.Group as={Col}>
-      <Form.Label style={{color: 'white'}}>Address</Form.Label>
-      <Form.Control placeholder="1234 Main St" name="venue_address" value={venue_address} onChange={this.handleChange} />
-    </Form.Group>
-  </Form.Row>
+          <Form.Group as={Col}>
+            <Form.Label style={{color: 'white'}}>Address</Form.Label>
+            <Form.Control placeholder="1234 Main St" name="venue_address" value={venue_address} onChange={this.handleChange} />
+          </Form.Group>
+        </Form.Row>
 
-  <Button variant="warning" type="submit" onClick={this.handleSubmit}>
-    Submit
-  </Button>
-</Form>
+        <Button variant="warning" type="submit" onClick={this.handleSubmit}>
+          Submit
+        </Button>
+      </Form>
     )
   }
 }

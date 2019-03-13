@@ -5,6 +5,7 @@ import './App.css';
 
 import Header from './Header';
 import Home from './Home';
+import EventList from './EventList';
 
 class App extends Component {
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
           <div className="App">
             <Header />
             <Route exact path="/" component={Home} />
-           
+            <Route path="/events" component={EventList} />
           </div>
         </body>
       </BrowserRouter>

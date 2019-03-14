@@ -41,7 +41,7 @@ class EventList extends Component {
 
   selectedEvent = (event) => {
     this.setState({selectedEvent: event});
-    console.log(event);
+    // console.log(event);
     this.props.location.state = {selectedEvent: event};
     this.props.history.push('/events/form');
   } 

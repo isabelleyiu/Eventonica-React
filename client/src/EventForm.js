@@ -15,18 +15,19 @@ class EventForm extends Component {
     }
   }
 
-  componentDidUpdate (prevProps) {
-    if(prevProps.selectedEvent !== this.props.selectedEvent) {
-        const time = moment(this.props.selectedEvent.start_time).local();
-        this.setState({
-          id: this.props.selectedEvent.id,
-          title: this.props.selectedEvent.title,
+  static getDerivedStateFromProps(props, state){
+    if(props.selectedEvent && !state.id) {
+        let time = moment(props.selectedEvent.start_time).local();
+        return {
+          id: props.selectedEvent.id,
+          title: props.selectedEvent.title,
           date: time.format("YYYY-MM-DD"),
           time: time.format("hh:mm a"),
-          venue_name: this.props.selectedEvent.venue_name,
-          venue_address: this.props.selectedEvent.venue_address
-        })
+          venue_name: props.selectedEvent.venue_name,
+          venue_address: props.selectedEvent.venue_address
+        };
     } 
+    return null;
   }
   
   // browser event as parameter
@@ -102,4 +103,4 @@ class EventForm extends Component {
   }
 }
  
-export default withRouter(EventForm
+export default withRouter(EventForm)

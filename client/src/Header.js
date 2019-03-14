@@ -13,6 +13,7 @@ class Header extends Component {
           <Nav className="ml-auto">
             {/* <Nav.Link><NavLink to="/about">About</NavLink></Nav.Link> */}
             <Nav.Link><NavLink to="/events">Events</NavLink></Nav.Link>
+            {/* <Nav.Link><NavLink to="/events/form">Create New Events</NavLink></Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

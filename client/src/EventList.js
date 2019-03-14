@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import Event from './Event';
 import { Container, Row, Col } from 'react-bootstrap';
+import { NavLink, Route, Redirect } from 'react-router-dom';
+
 import './EventList.css';
+import Event from './Event';
 import EventForm from './EventForm';
+
 
 class EventList extends Component {
   constructor(props) {
@@ -18,7 +21,7 @@ class EventList extends Component {
   loadEvents = () => {
     fetch('/api/events')
     .then(res => res.json())
-    .then(events => this.setState({events}))
+    .then(events => this.setState({events: events}))
     .catch(err => console.log(err => console.log(err.stack)))
   } 
 
@@ -78,12 +81,14 @@ class EventList extends Component {
         selectedEvent={this.selectedEvent.bind(this, event)}
       /></Col>
     ))
-    // console.log(this.state);
+
     return (
       <Container  style={{display: 'flex', flexDirection: 'column', flexWrap: 'wrap'}}>
-        <h1 style={{color: 'white'}}>Eventonica</h1>
-        <EventForm editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} />
-        {/* <h2>Here are the events:</h2> */}
+        <h1 style={{color: 'white'}}>Events</h1>
+        <NavLink to="/events/form">Create New Event</NavLink>
+        <Route path="/events/form" render={() => <EventForm editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} />} />
+        {/* <EventForm editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} /> */}
+      
         <Row className="event-list">
           {events}
         </Row>

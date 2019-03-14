@@ -6,6 +6,8 @@ import './App.css';
 import Header from './Header';
 import Home from './Home';
 import EventList from './EventList';
+import EventForm from './EventForm';
+import Eventful from './Eventful'
 
 class App extends Component {
   render() {
@@ -16,6 +18,8 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Home} />
             <Route path="/events" component={EventList} />
+            {/* <Route path="/events/form" render={() => <EventForm editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} />} /> */}
+            {/* <Route path="/eventful" component={Eventful} /> */}
           </div>
         </body>
       </BrowserRouter>

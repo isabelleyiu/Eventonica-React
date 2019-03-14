@@ -52,6 +52,7 @@ class EventForm extends Component {
       // passing form inputs over to EventList to make API call
       this.props.createEvent(inputEvent);
     }
+    // empty form
       this.setState({
         title: '',
         date: '',
@@ -64,22 +65,6 @@ class EventForm extends Component {
   render() {
     const {title, date, time, venue_name, venue_address} = this.state;
     return (
-      // <div className="event-form">
-      //   <Form>
-      //     <h2>Create New Event</h2>
-      //     <label>EVENT</label>
-      //     <input type="text" placeholder="Learn React" name="title" value={title} onChange={this.handleChange}></input>
-      //     <label>DATE</label>
-      //     <input type="text" placeholder="YYYY-MM-DD" name="date" value={date} onChange={this.handleChange}></input>
-      //     <label>TIME</label>
-      //     <input type="text" placeholder="06:30 pm" name="time" value={time} onChange={this.handleChange}></input>
-      //     <label>VENUE</label>
-      //     <input type="text" placeholder="Techtonica" name="venue_name" value={venue_name} onChange={this.handleChange}></input>
-      //     <label>ADDRESS</label>
-      //     <input type="text" placeholder="201 Mission Street" name="venue_address" value={venue_address} onChange={this.handleChange}></input>
-      //     <button onClick={this.handleSubmit}>Submit</button>
-      //   </Form>
-      // </div>
       <Form >
         <Form.Group>
           <Form.Label style={{color: 'white'}}>EVENT</Form.Label>

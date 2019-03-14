@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Button, Form  } from 'react-bootstrap';
 
-import EventList from './EventList';
 
-class Home extends Component {
+class EventForm extends Component {
   render() {
     return (
       <Container>
@@ -35,12 +34,11 @@ class Home extends Component {
             <Button variant="warning" type="submit">Search</Button>
           </Form>
 
-        {/* <h3>Featured Events</h3>
-        <EventList /> */}
+    
       </Container>
       
     )
   }
 }
 
-export default Home;
+export default EventForm;

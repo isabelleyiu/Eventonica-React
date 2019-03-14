@@ -18,7 +18,6 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Home} />
             <Route path="/events" component={EventList} />
-            {/* <Route path="/events/form" render={() => <EventForm editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} />} /> */}
             {/* <Route path="/eventful" component={Eventful} /> */}
           </div>
         </body>

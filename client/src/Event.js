@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import Moment from 'react-moment';
+import { withRouter } from 'react-router-dom';
 // import './Event.css'
 
 class Event extends Component {
@@ -30,4 +31,4 @@ class Event extends Component {
   }
 }
 
-export default Event
+export default withRouter(Event);

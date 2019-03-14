@@ -41,6 +41,9 @@ class EventList extends Component {
 
   selectedEvent = (event) => {
     this.setState({selectedEvent: event});
+    console.log(event);
+    this.props.location.state = {selectedEvent: event};
+    this.props.history.push('/events/form');
   } 
 
   editEvent = (eventInput) => {
@@ -85,15 +88,16 @@ class EventList extends Component {
     return (
       <Container  style={{display: 'flex', flexDirection: 'column', flexWrap: 'wrap'}}>
         <h1 style={{color: 'white'}}>Events</h1>
-        <NavLink to="/events/form">Create New Event</NavLink>
-
-        <Route path="/events/form" render={() => <EventForm  history={this.props.history} editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} />} />
-        {/* <EventForm editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} /> */}
 
         <Route exact path="/events" render={() => <Redirect to="/events/all" />} />
+        <NavLink to="/events/form">Create New Event</NavLink>
         <Row className="event-list">
+          
           <Route path="/events/all" render={() => events} />
         </Row> 
+
+        <Route path="/events/form" render={() => <EventForm editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} />} />
+        {/* <EventForm editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} /> */}
       </Container>
     )
   }

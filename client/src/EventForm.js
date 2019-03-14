@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import moment from 'moment';
+import { withRouter } from 'react-router-dom';
 
 class EventForm extends Component {
   constructor(props) {
@@ -101,4 +102,4 @@ class EventForm extends Component {
   }
 }
  
-export default EventForm
+export default withRouter(EventForm

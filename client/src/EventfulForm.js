@@ -3,6 +3,23 @@ import { Container, Button, Form  } from 'react-bootstrap';
 
 
 class EventForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      keyword: '',
+      location: ''
+    }
+  }
+
+  handleChange = (e) => {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.searchEventful(this.state.keyword, this.state.location);
+  }
+  
   render() {
     return (
       <Container>
@@ -10,15 +27,25 @@ class EventForm extends Component {
           <p>
             Find out what events are happening in your city!.
           </p>
-          <Form>
+          <Form onSubmit={this.handleSubmit}>
             <Form.Group>
               <Form.Label>Event Category</Form.Label>
-              <Form.Control type="text" placeholder="Dancing" />
+              <Form.Control 
+                type="search"
+                placeholder="Dancing"
+                name="keyword"
+                onChange={this.handleChange}
+                />
             </Form.Group>
 
             <Form.Group>
               <Form.Label>Location</Form.Label>
-              <Form.Control type="text" placeholder="San Francisco" />
+              <Form.Control 
+              type="text" 
+              placeholder="San Francisco"
+              name="location"
+              onChange={this.handleChange}
+               />
             </Form.Group>
 
             {/* <Form.Group controlId="exampleForm.ControlSelect1">

@@ -50,22 +50,23 @@ class EventForm extends Component {
       this.props.editEvent(inputEvent)
     } else {
       // passing form inputs over to EventList to make API call
-      this.props.createEvent(inputEvent);
+      this.props.createEvent(inputEvent)
     }
     // empty form
-      this.setState({
-        title: '',
-        date: '',
-        time: '',
-        venue_name: '',
-        venue_address: ''
-      })
+    this.setState({
+      title: '',
+      date: '',
+      time: '',
+      venue_name: '',
+      venue_address: ''
+    })
+    this.props.history.push('/events/all');
   }
 
   render() {
     const {title, date, time, venue_name, venue_address} = this.state;
     return (
-      <Form >
+      <Form onSubmit={this.handleSubmit}>
         <Form.Group>
           <Form.Label style={{color: 'white'}}>EVENT</Form.Label>
           <Form.Control type="text" placeholder="Learn React" name="title" value={title} onChange={this.handleChange} />
@@ -94,9 +95,7 @@ class EventForm extends Component {
           </Form.Group>
         </Form.Row>
 
-        <Button variant="warning" type="submit" onClick={this.handleSubmit}>
-          Submit
-        </Button>
+        <Button variant="warning" type="submit">Submit</Button>
       </Form>
     )
   }

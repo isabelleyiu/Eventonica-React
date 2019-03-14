@@ -86,12 +86,14 @@ class EventList extends Component {
       <Container  style={{display: 'flex', flexDirection: 'column', flexWrap: 'wrap'}}>
         <h1 style={{color: 'white'}}>Events</h1>
         <NavLink to="/events/form">Create New Event</NavLink>
-        <Route path="/events/form" render={() => <EventForm editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} />} />
+
+        <Route path="/events/form" render={() => <EventForm  history={this.props.history} editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} />} />
         {/* <EventForm editEvent={this.editEvent} selectedEvent={this.state.selectedEvent} createEvent={this.createEvent} /> */}
-      
+
+        <Route exact path="/events" render={() => <Redirect to="/events/all" />} />
         <Row className="event-list">
-          {events}
-        </Row>
+          <Route path="/events/all" render={() => events} />
+        </Row> 
       </Container>
     )
   }

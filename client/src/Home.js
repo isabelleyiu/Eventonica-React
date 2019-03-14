@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Jumbotron, Button, Form  } from 'react-bootstrap';
+import { Container, Button, Form  } from 'react-bootstrap';
 
 import EventList from './EventList';
 

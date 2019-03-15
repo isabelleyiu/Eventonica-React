@@ -12,7 +12,7 @@ class EventForm extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({[e.target.name]: e.target.value});
   }
 
   handleSubmit = (e) => {
@@ -28,14 +28,26 @@ class EventForm extends Component {
             Find out what events are happening in your city!.
           </p>
           <Form onSubmit={this.handleSubmit}>
-            <Form.Group>
+            <Form.Group controlId="exampleForm.ControlSelect1">
               <Form.Label>Event Category</Form.Label>
               <Form.Control 
+                as="select" 
                 type="search"
                 placeholder="Dancing"
                 name="keyword"
-                onChange={this.handleChange}
-                />
+                onChange={this.handleChange}>
+                <option>Choose Your Category</option>
+                <option>Music</option>
+                <option>Comedy</option>
+                <option>Education</option>
+                <option>Kids</option>
+                <option>Festivals</option>
+                <option>Movies</option>
+                <option>Food</option>
+                <option>Art</option>
+                <option>Technology</option>
+                <option>Books</option>
+              </Form.Control>
             </Form.Group>
 
             <Form.Group>
@@ -47,16 +59,6 @@ class EventForm extends Component {
               onChange={this.handleChange}
                />
             </Form.Group>
-
-            {/* <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Label>When</Form.Label>
-              <Form.Control as="select">
-                <option>Today</option>
-                <option>This Week</option>
-                <option>Next Week</option>
-                <option>This Month</option>
-              </Form.Control>
-            </Form.Group> */}
 
             <Button variant="warning" type="submit">Search</Button>
           </Form>

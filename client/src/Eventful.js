@@ -8,7 +8,8 @@ class Eventful extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      eventful: []
+      eventful: [],
+      loading: true
     }
   }
 
@@ -16,18 +17,19 @@ class Eventful extends Component {
     this.searchEventful();
   }
 
-  searchEventful = (searchKeyword='dancing', searchLocation='San Franscisco') => {
+  searchEventful = (searchCategory='music', searchLocation='San+Franscisco') => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const eventfulURL = 'https://api.eventful.com/json/events/search?total_items=4&';
-    const keyword = `keyword=${searchKeyword}&`;
+    const eventfulURL = 'https://api.eventful.com/json/events/search?';
+    const category = `category=${searchCategory}&`;
     const location = `location=${searchLocation}&`;
     const API_KEY = `app_key=${process.env.REACT_APP_EVENTFUL_API_KEY}`;
 
-    fetch(proxyurl + eventfulURL + keyword + location + API_KEY)
+    fetch(proxyurl + eventfulURL + category + location + API_KEY)
       .then(data => data.json())
       .then(eventful => {
         this.setState({
-          eventful: eventful.events.event
+          eventful: eventful.events.event,
+          loading: false
         })
       })
       .catch(err => console.log('Error', err));
@@ -49,7 +51,7 @@ class Eventful extends Component {
         <EventfulForm searchEventful={this.searchEventful}/>
         <Container style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
           <Row>
-            {eventful}
+            {(this.state.loading)? <h1 style={{color: 'white', align:'center'}}>Loading...</h1> : eventful}
           </Row>
         </Container>
       </>

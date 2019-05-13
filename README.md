@@ -1,6 +1,7 @@
 # Eventonica-React
 
-Simple CRUD App built with Node, Express, PostgreSQL, React
+Simple CRUD App for events 
 
+Built with Node, Express, PostgreSQL, React
 
 https://eventonica.herokuapp.com/
